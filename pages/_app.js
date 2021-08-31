@@ -1,4 +1,5 @@
-import '../styles/globals.css';
+import 'sanitize.css';
+import '../styles/globals.scss';
 import LayoutMain from '../components/layouts/layoutMain';
 
 function MyApp({ Component, pageProps }) {

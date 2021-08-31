@@ -1,3 +1,4 @@
+import styles from '../../styles/common/header.module.scss';
 import Link from 'next/link';
 
 export default function Header() {
@@ -8,18 +9,21 @@ export default function Header() {
   ];
 
   return (
-    <header>
-      <nav>
-        <ul>
-          {navigation.map(({ name, href, id }) => (
-            <li key={id}>
-              <Link href={href}>
-                <a>{name}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+    <header className={styles.header}>
+      <div className={styles.inner}>
+        <h1>NextJS Practice</h1>
+        <nav>
+          <ul className={styles.menuList}>
+            {navigation.map(({ name, href }) => (
+              <li className={styles.menuItem} key={name}>
+                <Link href={href}>
+                  <a>{name}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 }

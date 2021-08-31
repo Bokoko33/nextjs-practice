@@ -1,0 +1,29 @@
+.header {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1280px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px 0 20px;
+  margin: 0 auto;
+}
+
+.menuList {
+  display: flex;
+  align-items: center;
+}
+
+.menuItem {
+  &:not(:first-of-type) {
+    margin-left: 40px;
+  }
+}
