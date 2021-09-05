@@ -17,6 +17,7 @@ const styles = {
     align-items: center;
     justify-content: center;
     border-top: solid 1px var(--color-black);
+    border-bottom: solid 1px var(--color-black);
   `,
   copyright: css`
     font-size: 12px;
