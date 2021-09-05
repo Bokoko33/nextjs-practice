@@ -1,13 +1,13 @@
-import 'sanitize.css';
+import 'destyle.css';
 import '../styles/globals.scss';
-import LayoutMain from '../components/layouts/layoutMain';
+import { LayoutMain } from '../components/layouts/layoutMain';
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <LayoutMain>
       <Component {...pageProps} />
     </LayoutMain>
   );
-}
+};
 
 export default MyApp;

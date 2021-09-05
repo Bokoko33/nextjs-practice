@@ -1,13 +1,21 @@
-import Header from '../common/header';
-import Footer from '../common/footer';
-import styles from '../../styles/layouts/layoutMain.module.scss';
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
+import { Header } from '../common/header';
+import { Footer } from '../common/footer';
 
-export default function layoutMain({ children }) {
+export const LayoutMain = ({ children }) => {
   return (
     <>
       <Header />
-      <div className={styles.container}>{children}</div>
+      <div css={styles.container}>{children}</div>
       <Footer />
     </>
   );
-}
+};
+
+const styles = {
+  container: css`
+    padding-top: 80px;
+    min-height: calc(100vh - 100px);
+  `,
+};

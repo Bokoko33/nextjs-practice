@@ -1,9 +1,24 @@
-import styles from '../../styles/common/footer.module.scss';
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 
-export default function Footer() {
+export const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <p className={styles.main}>フッターー</p>
+    <footer css={styles.footer}>
+      <p css={styles.copyright}>&copy; 2021 boko</p>
     </footer>
   );
-}
+};
+
+const styles = {
+  footer: css`
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: solid 1px var(--color-black);
+  `,
+  copyright: css`
+    font-size: 12px;
+  `,
+};

@@ -1,8 +1,13 @@
+import { MV } from '../components/page/page-index/mv';
+import { SectionGallery } from '../components/page/page-index/sectionGallery';
+import { SectionAbout } from '../components/page/page-index/sectionAbout';
+
 export default function Home() {
   return (
     <>
-      <p>TOPページ</p>
-      <p>ぼこニキの第一歩</p>
+      <MV />
+      <SectionGallery />
+      <SectionAbout />
     </>
   );
 }
