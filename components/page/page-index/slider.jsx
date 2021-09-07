@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import { useRef } from 'react';
 import { useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
-import 'keen-slider/keen-slider.min.css';
+import Image from 'next/image';
 
 export const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -16,10 +16,10 @@ export const Slider = () => {
     },
   });
   const sliderItems = [
-    { title: 'image01', src: '' },
-    { title: 'image02', src: '' },
-    { title: 'image03', src: '' },
-    { title: 'image04', src: '' },
+    { title: 'street', src: '/images/image01.jpg' },
+    { title: 'shade', src: '/images/image02.jpg' },
+    { title: 'station', src: '/images/image03.jpg' },
+    { title: 'car', src: '/images/image04.jpg' },
   ];
 
   return (
@@ -28,13 +28,16 @@ export const Slider = () => {
         {sliderItems.map(({ title, src }, index) => (
           <div
             css={stylesSlider.item}
-            className={`keen-slider__slide number-slide${index + 1}`}
+            className="keen-slider__slide"
             key={index}
           >
-            {title}
+            <div css={stylesSlider.image}>
+              <Image src={src} layout={'fill'} alt="ギャラリー画像" />
+            </div>
           </div>
         ))}
       </div>
+      <p css={stylesSlider.title}>{sliderItems[currentSlide].title}</p>
 
       {/* 条件付きrender。sliderがあればレンダリング */}
       {slider && (
@@ -63,17 +66,30 @@ const stylesSlider = {
   `,
   container: css`
     width: 100%;
-    height: 100%;
     display: flex;
     overflow: hidden;
   `,
   item: css`
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 60%;
+    margin-top: 60px;
+    background-color: var(--color-black);
+  `,
+  image: css`
+    position: absolute;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  `,
+  title: css`
+    display: block;
+    font-size: 24px;
+    margin-top: 40px;
+    text-align: center;
   `,
   button: css`
     position: absolute;
