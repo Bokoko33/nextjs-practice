@@ -12,9 +12,10 @@ export const SectionBlockLarge = ({ children }) => {
 const styles = {
   block: css`
     width: 70%;
-    padding: 40px 2%;
+    height: 100%;
   `,
   inner: css`
     width: 100%;
+    height: 100%;
   `,
 };

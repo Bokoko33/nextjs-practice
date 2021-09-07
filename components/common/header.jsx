@@ -41,6 +41,7 @@ const styles = {
     background-color: white;
     border-top: solid 1px var(--color-black);
     border-bottom: solid 1px var(--color-black);
+    z-index: 1000;
   `,
   inner: css`
     width: 90%;

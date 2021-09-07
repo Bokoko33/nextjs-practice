@@ -5,6 +5,7 @@ import { sectionBody } from '../../../styles/common/commonStyles';
 import { SectionBlockLarge } from '../../layouts/sectionBlockLarge';
 import { SectionBlockSmall } from '../../layouts/sectionBlockSmall';
 import { ButtonLink } from '../../common/buttonLink';
+import { Slider } from './slider';
 
 export const SectionGallery = () => {
   return (
@@ -17,7 +18,7 @@ export const SectionGallery = () => {
         </SectionBlockSmall>
         <div css={styles.border}></div>
         <SectionBlockLarge>
-          <p>Slider</p>
+          <Slider />
         </SectionBlockLarge>
       </div>
     </section>
