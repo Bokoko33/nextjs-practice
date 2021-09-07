@@ -32,7 +32,12 @@ export const Slider = () => {
             key={index}
           >
             <div css={stylesSlider.image}>
-              <Image src={src} layout={'fill'} alt="ギャラリー画像" />
+              <Image
+                src={src}
+                layout={'fill'}
+                objectFit={'cover'}
+                alt="ギャラリー画像"
+              />
             </div>
           </div>
         ))}
@@ -66,30 +71,31 @@ const stylesSlider = {
   `,
   container: css`
     width: 100%;
+    height: 100%;
     display: flex;
     overflow: hidden;
   `,
   item: css`
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-top: 60%;
-    margin-top: 60px;
-    background-color: var(--color-black);
-  `,
-  image: css`
-    position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
+  `,
+  image: css`
+    position: relative;
+    width: 100%;
+    height: 80%;
+    max-width: 700px;
+    margin: 5% auto 0;
     object-fit: cover;
   `,
   title: css`
+    position: absolute;
     display: block;
     font-size: 24px;
-    margin-top: 40px;
     text-align: center;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    margin: auto;
   `,
   button: css`
     position: absolute;
