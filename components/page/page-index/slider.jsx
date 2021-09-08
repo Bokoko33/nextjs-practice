@@ -78,21 +78,23 @@ const stylesSlider = {
   item: css`
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   `,
   image: css`
     position: relative;
     width: 100%;
-    height: 80%;
-    max-width: 700px;
-    margin: 5% auto 0;
-    object-fit: cover;
+    height: 70%;
+    max-width: 600px;
+    max-height: 400px;
   `,
   title: css`
     position: absolute;
     display: block;
     font-size: 24px;
     text-align: center;
-    bottom: 5%;
+    bottom: 40px;
     left: 0;
     right: 0;
     margin: auto;

@@ -12,7 +12,7 @@ export const Footer = () => {
 const styles = {
   footer: css`
     width: 100%;
-    height: 60px;
+    height: var(--height-footer-pc);
     display: flex;
     align-items: center;
     justify-content: center;

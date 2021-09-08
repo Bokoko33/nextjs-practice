@@ -35,7 +35,8 @@ const styles = {
     font-weight: bold;
   `,
   subCopy: css`
-    font-size: ${vw(20)};
-    margin-top: 3vh;
+    font-size: ${vw(19)};
+    margin-top: 2.5vh;
+    margin-left: 3px;
   `,
 };

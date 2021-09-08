@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { heading2 } from '../../../styles/common/commonStyles';
-import { sectionBody, button } from '../../../styles/common/commonStyles';
+import { sectionBody } from '../../../styles/common/commonStyles';
 
 import Link from 'next/link';
 import { SectionBlockLarge } from '../../layouts/sectionBlockLarge';

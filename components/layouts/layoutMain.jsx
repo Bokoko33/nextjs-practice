@@ -15,7 +15,7 @@ export const LayoutMain = ({ children }) => {
 
 const styles = {
   container: css`
-    padding-top: 80px;
-    min-height: calc(100vh - 100px);
+    padding-top: var(--height-header-pc);
+    min-height: calc(100vh - var(--height-footer-pc));
   `,
 };
