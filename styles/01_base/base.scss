@@ -6,4 +6,15 @@ a {
 body {
   color: var(--color-black);
   letter-spacing: 0.05em;
+
+  height: 150px;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE, Edge 対応 */
+  scrollbar-width: none; /* Firefox 対応 */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  overscroll-behavior: none;
 }
