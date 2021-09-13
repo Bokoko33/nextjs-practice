@@ -11,10 +11,10 @@ import { ButtonLink } from '../../common/buttonLink';
 export const SectionAbout = () => {
   return (
     <section>
-      <h1 css={styles.heading}>About</h1>
+      <h1 css={styles.heading}>ABOUT</h1>
       <div css={styles.body}>
         <SectionBlockSmall>
-          <p css={styles.desc}>Aboutセクションの説明</p>
+          <p css={styles.desc}>ABOUTセクションの説明</p>
           <ButtonLink css={styles.button} href="/about" text="view more" />
         </SectionBlockSmall>
         <div css={styles.border}></div>

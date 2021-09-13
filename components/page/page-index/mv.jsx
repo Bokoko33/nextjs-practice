@@ -31,12 +31,14 @@ const styles = {
     justify-content: center;
   `,
   mainCopy: css`
-    font-size: ${vw(48)};
-    font-weight: bold;
+    font-family: 'Work Sans', sans-serif;
+    font-size: ${vw(52)};
   `,
   subCopy: css`
+    font-family: 'Work Sans', sans-serif;
     font-size: ${vw(19)};
     margin-top: 2.5vh;
     margin-left: 3px;
+    font-weight: 100;
   `,
 };

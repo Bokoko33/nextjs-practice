@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 export const Header = () => {
   const navigation = [
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'About', href: '/about' },
+    { name: 'GALLERY', href: '/gallery' },
+    { name: 'ABOUT', href: '/about' },
   ];
 
   return (
@@ -53,6 +53,7 @@ const styles = {
   `,
   logo: css`
     height: 100%;
+    font-family: 'Work Sans', sans-serif;
     font-size: 36px;
     display: flex;
     align-items: center;
@@ -71,6 +72,7 @@ const styles = {
     padding-left: 40px;
   `,
   item: css`
+    font-family: 'Work Sans', sans-serif;
     font-size: 18px;
     &:not(:first-of-type) {
       margin-left: 40px;

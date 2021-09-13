@@ -10,10 +10,10 @@ import { Slider } from './slider';
 export const SectionGallery = () => {
   return (
     <section>
-      <h1 css={heading2}>Gallery</h1>
+      <h1 css={heading2}>GALLERY</h1>
       <div css={styles.body}>
         <SectionBlockSmall border="left">
-          <p css={styles.desc}>Galleryセクションの説明</p>
+          <p css={styles.desc}>GALLERYセクションの説明</p>
           <ButtonLink css={styles.button} href="/gallery" text="view all" />
         </SectionBlockSmall>
         <div css={styles.border}></div>

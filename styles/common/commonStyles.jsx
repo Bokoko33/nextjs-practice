@@ -7,8 +7,8 @@ export const heading2 = css`
   width: 100%;
   height: 80px;
   padding: 0 5%;
+  font-family: 'Work Sans', sans-serif;
   font-size: 48px;
-  /* font-weight: 700; */
   border-top: solid 1px var(--color-black);
   border-bottom: solid 1px var(--color-black);
 `;
