@@ -1,17 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import Image from 'next/image';
-import { useState, useRef, useEffect } from 'react';
-
-// 開始と終了をなめらかに補間する関数
-const lerp = (start, end, multiplier) => {
-  return (1 - multiplier) * start + multiplier * end;
-};
-
-// 両端を過不足ないようにするためのスクロール領域計算
-const calcBodyHeight = (containerWidth, windowWidth, windowHeight) => {
-  return windowHeight + containerWidth - windowWidth;
-};
+import { useRef, useEffect } from 'react';
 
 export default function Gallery() {
   const images = [
@@ -26,15 +16,14 @@ export default function Gallery() {
   ];
 
   const scrollAreaEl = useRef(null);
-  const requestAnimationRef = useRef(null);
 
   useEffect(() => {
-    const htmlEl = document.documentElement;
     const bodyEl = document.body;
 
-    // ページアクセス時にぐい〜んってならないようにuseEffect内で初期化したい
-    let currentScrollY = 0;
-    // let scrollValue = 0;
+    // 両端を過不足ないようにするためのスクロール領域計算
+    const calcBodyHeight = (containerWidth, windowWidth, windowHeight) => {
+      return windowHeight + containerWidth - windowWidth;
+    };
 
     const setBodyHeight = () => {
       const virtualHeight = calcBodyHeight(
@@ -45,25 +34,18 @@ export default function Gallery() {
       bodyEl.style.height = `${virtualHeight}px`;
     };
 
-    const loop = () => {
-      // スクロール位置を更新
-      currentScrollY = lerp(currentScrollY, htmlEl.scrollTop, 0.1);
-      // scrollValue = htmlEl.scrollTop - currentScrollY;
-
-      if (scrollAreaEl.current) {
-        scrollAreaEl.current.style.transform = `translate3d(${-currentScrollY}px,0,0)`;
-      }
-      requestAnimationRef.current = window.requestAnimationFrame(loop);
+    let timeoutId = 0;
+    const resize = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(setBodyHeight, 200);
     };
 
-    window.addEventListener('resize', setBodyHeight);
+    window.addEventListener('resize', resize);
     setBodyHeight();
-    loop();
 
     return () => {
       // useEffectのreturn内の処理が、コンポーネントのunMount直前に呼ばれる
-      window.removeEventListener('resize', setBodyHeight);
-      window.cancelAnimationFrame(requestAnimationRef.current);
+      window.removeEventListener('resize', resize);
 
       // bodyの高さをリセット
       bodyEl.style.height = 'auto';
@@ -72,7 +54,11 @@ export default function Gallery() {
 
   return (
     <div css={styles.fixed}>
-      <div css={styles.scrollable} ref={scrollAreaEl}>
+      <div
+        ref={scrollAreaEl}
+        css={styles.scrollable}
+        className="js-scroll-area"
+      >
         <ul css={styles.list}>
           {images.map(({ title, src }, index) => (
             <li css={styles.item} key={index}>
@@ -81,6 +67,8 @@ export default function Gallery() {
                 layout={'fill'}
                 objectFit={'cover'}
                 alt={title}
+                className={'js-img'}
+                data-img={src}
               />
             </li>
           ))}
@@ -91,10 +79,6 @@ export default function Gallery() {
 }
 
 const styles = {
-  container: css`
-    position: relative;
-    width: 100%;
-  `,
   fixed: css`
     width: 100vw;
     height: 100vh;
@@ -119,6 +103,7 @@ const styles = {
     position: relative;
     width: 500px;
     height: 320px;
+    /* opacity: 0; */
     &:not(:first-of-type) {
       margin-left: 120px;
     }
